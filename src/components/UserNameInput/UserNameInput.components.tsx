@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './UserNameInput.components.css';
 import { Redirect } from 'react-router-dom';
-import SignInHttpService from '../services/SignIn.http.service';
-import HttpService, { HTTPMETHOD } from '../services/http.services';
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import SignInHttpService from '../../services/SignIn.http.service';
+import HttpService, { HTTPMETHOD } from '../../services/http.services';
 
 export default class UserNameInput extends Component <{}, {userName: string, redirect: boolean }> {
     constructor(props: any) {

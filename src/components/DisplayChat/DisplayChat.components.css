@@ -1,0 +1,18 @@
+.chat-container {
+    padding-top: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: white;
+    position: static;
+}
+
+h2 {
+    text-align: center;
+}
+
+.chat-logs {
+    position: relative;
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
