@@ -5,7 +5,7 @@ export default class ChatRoom extends Component {
 
     render () {
         return (
-            <div></div>
+            <div>test</div>
         )
     }
 }

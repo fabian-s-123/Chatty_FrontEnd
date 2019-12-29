@@ -18,9 +18,7 @@ export default class HttpService {
             case HTTPMETHOD.PUT:
                 return axios.put(composedURL, data);
             case HTTPMETHOD.POST:
-                return axios.post(composedURL, {
-                    "userName": data
-                });
+                return axios.post(composedURL, data);
             case HTTPMETHOD.DELETE:
                 return axios.delete(composedURL);
         }
