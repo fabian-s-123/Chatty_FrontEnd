@@ -15,4 +15,13 @@ h2 {
     padding-top: 6px;
     padding-left: 6px;
     padding-right: 6px;
+    text-align: left;
+    border-style: solid;
+    border-color: darkgray;
+    height: 60vh;
+}
+
+th {
+    color: cyan;
+    font-size: 18px;
 }
