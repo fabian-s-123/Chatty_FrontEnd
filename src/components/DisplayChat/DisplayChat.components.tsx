@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './DisplayChat.components.css';
 import Message from '../../models/Message';
-import getChatsHttpService from '../../services/getChats.http.service';
+import GetChatsHttpService from '../../services/getChats.http.services';
 
 export default class DisplayChat extends Component<{}, { searchData: any }> {
     constructor(props: any) {
@@ -23,7 +23,7 @@ export default class DisplayChat extends Component<{}, { searchData: any }> {
     }
 
     loadMessages() {
-        getChatsHttpService.getChats((response: any) => {
+        GetChatsHttpService.getChats((response: any) => {
             this.getDataFromDb(response)
         })
     }

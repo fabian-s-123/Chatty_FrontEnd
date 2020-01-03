@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './UserNameInput.components.css';
 import { Redirect } from 'react-router-dom';
-import SignInHttpService from '../../services/signIn.http.service';
+import SignInHttpService from '../../services/signIn.http.services';
 import HttpService, { HTTPMETHOD } from '../../services/http.services';
 
 export default class UserNameInput extends Component <{}, {userName: string, redirect: boolean }> {
