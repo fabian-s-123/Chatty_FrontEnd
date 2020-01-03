@@ -10,9 +10,11 @@ export default class EnterMessage extends Component<{}, {}> {
 
     render() {
         return(
-            <div className="user-input-container">test
+            <div className="user-input-container">
                 <h2>Write your message</h2>
-                
+                <section className="message-input">
+                    
+                </section>
             </div>
         )
     }

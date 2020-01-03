@@ -1,5 +1,15 @@
 .user-input-container {
+    position: static;
+    padding-top: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
     color: white;
+}
+
+.message-input {
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
     border-style: solid;
     border-color: darkgray;
 }

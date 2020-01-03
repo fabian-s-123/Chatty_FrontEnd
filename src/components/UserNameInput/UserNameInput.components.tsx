@@ -33,7 +33,9 @@ export default class UserNameInput extends Component <{}, {userName: string, red
                 redirect: true
             })
             localStorage.setItem("userName", this.state.userName)
+            localStorage.setItem("userId", res.data)
             alert("Signed in to the chatroom!")
+            HttpService.request(HTTPMETHOD.GET, "/user")
         })
         .catch (err => {
             console.log(err)
