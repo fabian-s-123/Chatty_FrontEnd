@@ -10,7 +10,10 @@ export default class EnterMessage extends Component<{}, {}> {
 
     render() {
         return(
-            <div>test</div>
+            <div className="user-input-container">test
+                <h2>Write your message</h2>
+                
+            </div>
         )
     }
 }
