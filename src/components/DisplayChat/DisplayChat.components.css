@@ -19,9 +19,30 @@ h2 {
     border-style: solid;
     border-color: darkgray;
     height: 75vh;
+    overflow-y: auto;
+    z-index: 0;
 }
 
 th {
+    top: 0;
+    position: sticky;
+    background-color: black;
     color: cyan;
     font-size: 18px;
+    z-index: 10;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(26, 26, 26);
+}
+
+.background {
+    position: sticky;
+    top: -6px;
+    margin-left: -6px;
+    height: 6px;
+    width: auto;
+    background-color: black;
+    color: black;
+    z-index: 5;
 }

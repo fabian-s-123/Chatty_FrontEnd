@@ -10,8 +10,8 @@ export default class HttpService {
 
     static request(httpMethod: HTTPMETHOD, path: string, data?: any) {
         const composedURL = HTTPURL + path;
-        //console.log(composedURL);
-        //console.log(data)
+        console.log(composedURL);
+        console.log(data)
         switch(httpMethod) {
             case HTTPMETHOD.GET: 
                 return axios.get(composedURL);

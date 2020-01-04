@@ -1,4 +1,4 @@
-import HttpService, { HTTPMETHOD } from "./http.services";
+import HttpService, { HTTPMETHOD } from './http.services';
 
 export default class SignInHttpService {
 

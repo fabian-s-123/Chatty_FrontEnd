@@ -17,10 +17,8 @@ export default class UserNameInput extends Component <{}, {userName: string, red
         }
     }
 
-    handleChange = (e: any) => {
-        this.setState ({
-            userName: e.target.value
-        })
+    handleChange(e: any) {
+        this.setState ({ userName: e.target.value})
     }
 
     handleSubmit(e: any) {
@@ -29,9 +27,7 @@ export default class UserNameInput extends Component <{}, {userName: string, red
         console.log(HttpService.request(HTTPMETHOD.GET, '/user'))
         SignInHttpService.signIn(this.state.userName)
         .then(res => {
-            this.setState ({
-                redirect: true
-            })
+            this.setState ({redirect: true})
             localStorage.setItem("userName", this.state.userName)
             localStorage.setItem("userId", res.data)
             alert("Signed in to the chatroom!")
