@@ -3,7 +3,7 @@ import './EnterMessage.components.css';
 import Message from '../../models/Message';
 import PostMessageService from '../../services/postMessage.http.services';
 
-export default class EnterMessage extends Component<{}, {message: string}> {
+export default class EnterMessage extends Component<{}, { message: string }> {
     constructor(props: any) {
         super(props);
 
@@ -23,12 +23,12 @@ export default class EnterMessage extends Component<{}, {message: string}> {
         e.preventDefault();
         PostMessageService.postMessage(this.state.message)
         .then(res => {
+            this.setState ({message: ''})
         })
         .catch(err => {
             console.log(err)
         })
     }
-
 
     render() {
         return(

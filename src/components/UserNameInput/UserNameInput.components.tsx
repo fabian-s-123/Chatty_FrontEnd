@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import SignInHttpService from '../../services/signIn.http.services';
 import HttpService, { HTTPMETHOD } from '../../services/http.services';
 
-export default class UserNameInput extends Component <{}, {userName: string, redirect: boolean }> {
+export default class UserNameInput extends Component <{}, { userName: string, redirect: boolean }> {
     constructor(props: any) {
         super(props);
 
@@ -27,11 +27,10 @@ export default class UserNameInput extends Component <{}, {userName: string, red
         console.log(HttpService.request(HTTPMETHOD.GET, '/user'))
         SignInHttpService.signIn(this.state.userName)
         .then(res => {
-            this.setState ({redirect: true})
+            this.setState ({ redirect: true })
             localStorage.setItem("userName", this.state.userName)
             localStorage.setItem("userId", res.data)
             alert("Signed in to the chatroom!")
-            HttpService.request(HTTPMETHOD.GET, "/user")
         })
         .catch (err => {
             console.log(err)
@@ -47,7 +46,7 @@ export default class UserNameInput extends Component <{}, {userName: string, red
                     <input className="btn" type="submit" value="Go" />
                  </form>
                  <div>
-                    {this.state.redirect && 
+                    {this.state.redirect==true && 
                         <Redirect to="/chat-room" />
                     }
                  </div>

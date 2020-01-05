@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import './DisplayChat.components.css';
 import Message from '../../models/Message';
 import GetChatsHttpService from '../../services/getChats.http.services';
+import ScrollIntoView from 'react-scroll-into-view';
 
 export default class DisplayChat extends Component<{}, { searchData: any }> {
     constructor(props: any) {
         super(props);
-
+        
         this.state = {
-            searchData: null
+            searchData: null,
         }
 
         this.getDataFromDb = this.getDataFromDb.bind(this);
         this.loadMessages = this.loadMessages.bind(this);
+        this.scrollToBottom = this.scrollToBottom.bind(this);
         /* this.displayTime = this.displayTime.bind(this); */
     }
 
@@ -20,6 +22,15 @@ export default class DisplayChat extends Component<{}, { searchData: any }> {
         setInterval(async() => {
             this.loadMessages()
         }, 1000)
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
+
+    scrollToBottom() {
+        //scrollIntoView({ behaviour: 'smooth '});
     }
 
     loadMessages() {
@@ -33,14 +44,13 @@ export default class DisplayChat extends Component<{}, { searchData: any }> {
             return;
         }
 
-        let arr = [];
+        let arr = [] as any;
         if (Array.isArray(response.data)) {
             arr = response.data;
         } else {
             arr.push(response.data);
         }
         this.setState({ searchData: arr })
-        //console.log(this.state.searchData)
     }
 
     /*      displayTime() {
@@ -50,7 +60,7 @@ export default class DisplayChat extends Component<{}, { searchData: any }> {
             console.log(formattedTime)
             return(formattedTime)
         } */
-
+    
     render() {
         return (
             <div className="chat-container">
@@ -60,9 +70,9 @@ export default class DisplayChat extends Component<{}, { searchData: any }> {
                     <table style={{ borderCollapse: 'collapse' }}>
                         <thead>
                             <tr>
-                                    <th scope="col">Username</th>
-                                    <th scope="col">Message</th>
-                                    <th scope="col">posted on</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Message</th>
+                                <th scope="col">posted on</th>
                             </tr>
                         </thead>
                         <tbody>
