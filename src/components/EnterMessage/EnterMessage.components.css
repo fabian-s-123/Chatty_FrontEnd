@@ -8,13 +8,12 @@
 }
 
 .message-input {
-    padding-top: 6px;
+/*     margin-top: 6px;
     padding-left: 6px;
-    padding-right: 6px;
+    padding-right: 6px; */
     border-style: solid;
     border-color: darkgray;
     height: 4vh;
-    padding-top: 0.9%;
 }
 
 h2 {
@@ -25,20 +24,9 @@ h2 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 24px;
     color: black;
-    position: relative;
     width: 89%;
     text-align: left;
     border-style: solid;
     border-color: darkgray;
-}
-
-.btn {
-    position: relative;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 24px;
-    text-align: center;
-    width: 10%;
-    background-color: rgb(107, 107, 107);
-    border-style: solid;
-    border-color: darkgray;
+    margin-top: 11px;
 }

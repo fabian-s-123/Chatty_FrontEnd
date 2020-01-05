@@ -6,7 +6,7 @@ export default class PostMessageService {
         return HttpService.request(HTTPMETHOD.POST, "/messages", {
             "content": values,
             "user": {
-                "id": localStorage.getItem("userId")
+                "id": sessionStorage.getItem("userId")
             }
         })
     }

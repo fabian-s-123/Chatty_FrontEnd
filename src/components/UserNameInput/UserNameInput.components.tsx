@@ -8,15 +8,16 @@ export default class UserNameInput extends Component <{}, { userName: string, re
     constructor(props: any) {
         super(props);
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-
         this.state = {
             userName: '',
             redirect: false
         }
-    }
 
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderRedirect = this.renderRedirect.bind(this);
+    }
+    
     handleChange(e: any) {
         this.setState ({ userName: e.target.value})
     }
@@ -24,18 +25,23 @@ export default class UserNameInput extends Component <{}, { userName: string, re
     handleSubmit(e: any) {
         e.preventDefault();
         console.log(this.state.userName)
-        console.log(HttpService.request(HTTPMETHOD.GET, '/user'))
         SignInHttpService.signIn(this.state.userName)
         .then(res => {
             this.setState ({ redirect: true })
-            localStorage.setItem("userName", this.state.userName)
-            localStorage.setItem("userId", res.data)
+            sessionStorage.setItem("userName", this.state.userName)
+            sessionStorage.setItem("userId", res.data)
             alert("Signed in to the chatroom!")
         })
         .catch (err => {
             console.log(err)
             alert("Username is already in use!")
         })
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/chat-room' />
+        }
     }
 
     render () {
@@ -46,10 +52,8 @@ export default class UserNameInput extends Component <{}, { userName: string, re
                     <input className="btn" type="submit" value="Go" />
                  </form>
                  <div>
-                    {this.state.redirect==true && 
-                        <Redirect to="/chat-room" />
-                    }
-                 </div>
+                    {this.renderRedirect()}
+                </div>
             </div>
         )
     }

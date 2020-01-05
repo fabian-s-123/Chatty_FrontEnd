@@ -1,19 +1,12 @@
 .exit-btn {
-    position: relative;
+    position: absolute;
+    width: 100vw;
     top: 20px;
     right: 20px;
     text-align: right;
     z-index: 10;
-
 }
 
 .btn {
-    position: relative;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 24px;
-    text-align: center;
-    width: 10%;
-    background-color: rgb(107, 107, 107);
-    border-style: solid;
-    border-color: darkgray;
+    width: 100%;
 }

@@ -24,3 +24,19 @@ a {
   color: #333;
   text-decoration: none;
 }
+
+.btn {
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
+  text-align: center;
+  width: 10%;
+  background-color: rgb(107, 107, 107);
+  border-style: solid;
+  border-color: darkgray;
+}
+
+.btn:hover {
+  background-color: rgb(65, 65, 65);
+  cursor: pointer;
+}

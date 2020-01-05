@@ -12,18 +12,26 @@ export default class ExitChat extends Component<{}, { redirect: boolean }> {
         }
     
         this.handleSignOut = this.handleSignOut.bind(this);
+        this.renderRedirect = this.renderRedirect.bind(this);
     }
-
-    handleSignOut() {
+    
+    handleSignOut(e: any) {
+        e.preventDefault();
         SignOutHttpService.signOut()
         .then(res => {
             this.setState({ redirect: true })
-            localStorage.clear();
+            sessionStorage.clear();
             alert("Signed out of the chatroom!")
         })
         .catch(err => {
             console.log(err)
         })
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/' />
+        }
     }
 
     render() {
@@ -33,9 +41,7 @@ export default class ExitChat extends Component<{}, { redirect: boolean }> {
                     <input className="btn" type="submit" value="Sign out" />
                 </form>
                 <div>
-                    {this.state.redirect==true &&
-                        <Redirect to ="/" />
-                    }
+                    {this.renderRedirect()}
                 </div>
             </div>
         )

@@ -13,14 +13,3 @@ div {
     border-style: solid;
     border-color: darkgray;
 }
-
-.btn {
-    position: relative;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 24px;
-    text-align: center;
-    width: 10%;
-    background-color: rgb(107, 107, 107);
-    border-style: solid;
-    border-color: darkgray;
-}
