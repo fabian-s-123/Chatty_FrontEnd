@@ -4,7 +4,7 @@ import Message from '../../models/Message';
 import GetChatsHttpService from '../../services/getChats.http.services';
 import ScrollIntoView from 'react-scroll-into-view';
 
-export default class DisplayChat extends Component<{}, { isLoading: boolean, searchData: [] }> {
+export default class DisplayChat extends Component<{}, { isLoading: boolean, searchData: any }> {
     constructor(props: any) {
         super(props);
         
@@ -53,41 +53,41 @@ export default class DisplayChat extends Component<{}, { isLoading: boolean, sea
             arr.push(response.data);
         }
         this.setState({ searchData: arr })
+        this.displayTime();
     }
 
-    /*      displayTime() {
-            var time = new Date(Date.parse(this.state.searchData.postedOn));
-            console.log(time)
-            var formattedTime = time.getDate() + "." + (time.getMonth() + 1) + "." + time.getFullYear() + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
-            console.log(formattedTime)
-            return(formattedTime)
-        } */
+    displayTime = () => {
+        var time = new Date(Date.parse(this.state.searchData[0].postedOn));
+        console.log(time)
+        var formattedTime = time.getDate() + "." + (time.getMonth() + 1) + "." + time.getFullYear() + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
+        console.log(formattedTime)
+        return(formattedTime)
+    }
     
     render() {
         return (
             <div className="chat-container">
-                {/* {this.state.isLoading &&
+                {this.state.isLoading &&
                     <div className="loading-message">Loading messages ...</div>
-                } */}
+                }
                 <h2>Chat History</h2>
                 <div className="chat-logs">
                 <div className="background"></div>
                     <table style={{ borderCollapse: 'collapse' }}>
                         <thead>
                             <tr>
-                                <th style={{ width: '15%', paddingRight: '6px', verticalAlign: 'top' }} scope="col">Username</th>
-                                <th style={{ width: '85%', paddingBottom: '12px', paddingRight: '6px', textAlign: 'left' }} scope="col">Message</th>
-                                <th style={{ width: '20%', verticalAlign: 'top' }} scope="col">posted on</th>
+                                <th className="table-row1" scope="col">Username</th>
+                                <th className="table-row2" scope="col">Message</th>
+                                <th className="table-row3" scope="col">posted on</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.searchData && this.state.searchData.map(function (item: Message, key: number) {
                                 return (
                                     <tr key={key}>
-                                        <td style={{ width: '15%', paddingRight: '6px', verticalAlign: 'top' }}>{item.userName} says:</td>
-                                        <td style={{ width: '85%', paddingBottom: '12px', paddingRight: '6px', textAlign: 'left' }}>{item.content}</td>
-                                        <td style={{ width: '20%', verticalAlign: 'top' }}>{item.postedOn}</td>
-                                        <td>{}</td>
+                                        <td className="table-row1" style={{fontWeight: 'bold'}}>{item.userName}:</td>
+                                        <td className="table-row2">{item.content}</td>
+                                        <td className="table-row3">{function display(this: any) {this.displayTime()}}</td>
                                     </tr>
                                 );
                             })}

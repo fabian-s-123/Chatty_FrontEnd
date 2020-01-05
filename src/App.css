@@ -6,6 +6,7 @@
 body {
   font-family: 'Courier New', Courier, monospace;
   line-height: 1.4;
+  background-color: black;
 }
 
 h1 {
@@ -18,11 +19,7 @@ h2 {
   font-size: 36px;
   font-family: 'Courier New', Courier, monospace;
   color: rgb(81, 255, 0);
-}
-
-a {
-  color: #333;
-  text-decoration: none;
+  text-align: center;
 }
 
 .btn {
@@ -31,6 +28,7 @@ a {
   font-size: 24px;
   text-align: center;
   width: 10%;
+  min-width: fit-content;
   background-color: rgb(107, 107, 107);
   border-style: solid;
   border-color: darkgray;
