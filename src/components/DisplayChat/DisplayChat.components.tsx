@@ -16,7 +16,7 @@ export default class DisplayChat extends Component<{}, { isLoading: boolean, sea
         this.getDataFromDb = this.getDataFromDb.bind(this);
         this.loadMessages = this.loadMessages.bind(this);
         this.scrollToBottom = this.scrollToBottom.bind(this);
-        /* this.displayTime = this.displayTime.bind(this); */
+        //this.displayTime = this.displayTime.bind(this);
     }
 
     componentDidMount() {
@@ -53,16 +53,16 @@ export default class DisplayChat extends Component<{}, { isLoading: boolean, sea
             arr.push(response.data);
         }
         this.setState({ searchData: arr })
-        this.displayTime();
+        //this.displayTime();
     }
 
-    displayTime = () => {
+/*     displayTime = () => {
         var time = new Date(Date.parse(this.state.searchData[0].postedOn));
         console.log(time)
         var formattedTime = time.getDate() + "." + (time.getMonth() + 1) + "." + time.getFullYear() + " " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
         console.log(formattedTime)
         return(formattedTime)
-    }
+    } */
     
     render() {
         return (
@@ -87,7 +87,7 @@ export default class DisplayChat extends Component<{}, { isLoading: boolean, sea
                                     <tr key={key}>
                                         <td className="table-row1" style={{fontWeight: 'bold'}}>{item.userName}:</td>
                                         <td className="table-row2">{item.content}</td>
-                                        <td className="table-row3">{function display(this: any) {this.displayTime()}}</td>
+                                        <td className="table-row3">{item.postedOn}</td>
                                     </tr>
                                 );
                             })}

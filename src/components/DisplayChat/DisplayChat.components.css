@@ -23,6 +23,7 @@
     border-style: solid;
     border-color: darkgray;
     height: 80%;
+    max-height: 75vh;
     overflow-y: auto;
     z-index: 0;
 }
