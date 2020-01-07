@@ -10,9 +10,6 @@ export default class ExitChat extends Component<{}, { redirect: boolean }> {
         this.state = {
             redirect: false
         }
-    
-        this.handleSignOut = this.handleSignOut.bind(this);
-        this.renderRedirect = this.renderRedirect.bind(this);
     }
     
     handleSignOut(e: any) {

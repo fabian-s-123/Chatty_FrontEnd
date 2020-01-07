@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
 import './EnterMessage.components.css';
-import { Redirect } from 'react-router-dom';
+
 import Message from '../../models/Message';
 import PostMessageService from '../../services/postMessage.http.services';
 
-export default class EnterMessage extends Component<{}, { message: string, redirect: boolean }> {
+export default class EnterMessage extends Component<{}, { message: string }> {
     constructor(props: any) {
         super(props);
 
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.checkUser = this.checkUser.bind(this);
-        this.renderRedirect = this.renderRedirect.bind(this);
-
         this.state = {
-            message: '',
-            redirect: false
+            message: ''
         }
-    }
-
-    componentDidMount() {
-        setTimeout(this.checkUser, 2000)
     }
 
     handleChange(e: any) {
@@ -42,19 +32,6 @@ export default class EnterMessage extends Component<{}, { message: string, redir
         }
     }
 
-    checkUser() {
-        if (sessionStorage.length===0) {
-            alert("You must first sign in to post messages")
-            this.setState ({ redirect: true });
-        }
-    }
-
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to='/' />
-        }
-    }
-
     render() {
         return(
             <div className="user-input-container">
@@ -63,9 +40,6 @@ export default class EnterMessage extends Component<{}, { message: string, redir
                     <input className="message" type="text" name="content" value={this.state.message} onChange={this.handleChange} placeholder="..." />
                     <input className="btn" type="submit" value="post" />
                 </form>
-                <div>
-                    {this.renderRedirect()}
-                </div>
             </div>
         )
     }

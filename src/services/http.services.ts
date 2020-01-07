@@ -4,7 +4,7 @@ export enum HTTPMETHOD {
     GET, PUT, POST, DELETE
 }
 
-const HTTPURL = "http://localhost:8080/api"
+const HTTPURL = "http://192.168.0.68:8080/api"
 
 export default class HttpService {
 

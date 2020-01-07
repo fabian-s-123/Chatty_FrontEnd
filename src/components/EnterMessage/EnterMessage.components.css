@@ -7,12 +7,6 @@
     text-align: center;
 }
 
-.message-input {
-    border-style: solid;
-    border-color: darkgray;
-    height: 6vh;
-}
-
 .message {
     font-family: 'Courier New', Courier, monospace;
     font-size: 24px;
@@ -21,5 +15,5 @@
     text-align: left;
     border-style: solid;
     border-color: darkgray;
-    margin-top: 1.1%;
+    margin-top: 0.5%;
 }
